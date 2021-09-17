@@ -22,6 +22,87 @@ let AppController = class AppController {
     getHello() {
         return this.appService.getHello();
     }
+    sumar(queryParams, req, res) {
+        var resultado = Number(queryParams.numeroUno) + Number(queryParams.numeroDos);
+        var sinFirmar = req.cookies;
+        var valor = sinFirmar["valor"];
+        if (valor != undefined) {
+            var valor_nuevo = Number(valor) - resultado;
+            res.cookie('valor', valor_nuevo);
+            if (valor_nuevo < 0) {
+                res.cookie('valor', 100);
+                return "Ha ganadao resetearemso el valor de la cookie a 100";
+            }
+            else {
+                return "El valor de la suma es igual a " + resultado + " te quedan: " + valor_nuevo + " puntos";
+            }
+        }
+        else {
+            res.cookie('valor', 100);
+            res.send('Se ha creado la cookie con un valor de 100, ya que no se ha encontrado una anteriormente, Intente de nuevo');
+        }
+    }
+    restar(bodyParams, headers, req, res) {
+        var resultado = Number(bodyParams.numeroUno) - Number(bodyParams.numeroDos);
+        res.header("Valor", resultado);
+        var sinFirmar = req.cookies;
+        var valor = sinFirmar["valor"];
+        if (valor != undefined) {
+            var valor_nuevo = Number(valor) - resultado;
+            res.cookie('valor', valor_nuevo);
+            if (valor_nuevo < 0) {
+                res.cookie('valor', 100);
+                return "Ha ganadao resetearemso el valor de la cookie a 100";
+            }
+            else {
+                return "El valor de la suma es igual a " + resultado + " te quedan: " + valor_nuevo + " puntos";
+            }
+        }
+        else {
+            res.cookie('valor', 100);
+            res.send('Se ha creado la cookie con un valor de 100, ya que no se ha encontrado una anteriormente, Intente de nuevo');
+        }
+    }
+    multiplicar(params, req, res) {
+        var resultado = Number(params.numeroUno) * Number(params.numeroDos);
+        var sinFirmar = req.cookies;
+        var valor = sinFirmar["valor"];
+        if (valor != undefined) {
+            var valor_nuevo = Number(valor) - resultado;
+            res.cookie('valor', valor_nuevo);
+            if (valor_nuevo < 0) {
+                res.cookie('valor', 100);
+                return "Ha ganadao resetearemso el valor de la cookie a 100";
+            }
+            else {
+                return "El valor de la suma es igual a " + resultado + " te quedan: " + valor_nuevo + " puntos";
+            }
+        }
+        else {
+            res.cookie('valor', 100);
+            res.send('Se ha creado la cookie con un valor de 100, ya que no se ha encontrado una anteriormente, Intente de nuevo');
+        }
+    }
+    dividir(headers, req, res) {
+        var resultado = Number(headers.numerouno) / Number(headers.numerodos);
+        var sinFirmar = req.cookies;
+        var valor = sinFirmar["valor"];
+        if (valor != undefined) {
+            var valor_nuevo = Number(valor) - resultado;
+            res.cookie('valor', valor_nuevo);
+            if (valor_nuevo < 0) {
+                res.cookie('valor', 100);
+                return "Ha ganadao resetearemso el valor de la cookie a 100";
+            }
+            else {
+                return "El valor de la suma es igual a " + resultado + " te quedan: " + valor_nuevo + " puntos";
+            }
+        }
+        else {
+            res.cookie('valor', 100);
+            res.send('Se ha creado la cookie con un valor de 100, ya que no se ha encontrado una anteriormente, Intente de nuevo');
+        }
+    }
     holaTexto() {
         return 'HOLA TEXTO';
     }
@@ -71,6 +152,48 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", String)
 ], AppController.prototype, "getHello", null);
+__decorate([
+    common_1.Get('suma'),
+    common_1.HttpCode(200),
+    __param(0, common_1.Query()),
+    __param(1, common_1.Req()),
+    __param(2, common_1.Res({ passthrough: true })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "sumar", null);
+__decorate([
+    common_1.Post('resta'),
+    common_1.HttpCode(201),
+    common_1.Header('Result', 'Value'),
+    __param(0, common_1.Body()),
+    __param(1, common_1.Headers()),
+    __param(2, common_1.Req()),
+    __param(3, common_1.Res({ passthrough: true })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "restar", null);
+__decorate([
+    common_1.Put('multiplicar/:numeroUno/:numeroDos'),
+    common_1.HttpCode(200),
+    __param(0, common_1.Param()),
+    __param(1, common_1.Req()),
+    __param(2, common_1.Res({ passthrough: true })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "multiplicar", null);
+__decorate([
+    common_1.Get('dividir'),
+    common_1.HttpCode(201),
+    __param(0, common_1.Headers()),
+    __param(1, common_1.Req()),
+    __param(2, common_1.Res({ passthrough: true })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "dividir", null);
 __decorate([
     common_1.Get('texto'),
     common_1.HttpCode(200),
