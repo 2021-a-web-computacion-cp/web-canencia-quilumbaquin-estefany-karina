@@ -11,8 +11,8 @@ export class AppController {
     return "Hello World"
   }
 
-  // SUMA
-  @Get('suma')
+  // REALIZAR SUMA
+  @Get('sumar')
   @HttpCode(200)
   suma(
     @Query() values,
@@ -22,8 +22,8 @@ export class AppController {
     let parametersResult = Number(values.first_value) + Number(values.second_value);
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
-      let newValue = actualValue - parametersResult;
-      if (newValue<=0) {
+      let resultadoCookie = actualValue - parametersResult;
+      if (resultadoCookie<=0) {
         response.cookie(
           'total',
           100,
@@ -35,12 +35,12 @@ export class AppController {
       } else {
         response.cookie(
           'total',
-          newValue,
+          resultadoCookie,
           {
             signed: true
           }
         )
-        return "El nuevo valor es: "+newValue;
+        return "Nuevo valor: "+resultadoCookie;
       }
     } else {
       response.cookie(
@@ -50,13 +50,13 @@ export class AppController {
           signed: true
         }
       )
-      response.send('Cookie seteada por primera vez')
+      response.send('la Cookie ha sido seteada por primera vez')
     }
   }
 
 
-  // RESTA
-  @Post('resta')
+  // REALIZAR RESTA
+  @Post('restar')
   @HttpCode(201)
   @Header('RESULTADO','VALUE')
   resta(
@@ -68,8 +68,8 @@ export class AppController {
     response.header['RESULTADO']=parametersResult.toString()
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
-      let newValue = actualValue - parametersResult;
-      if (newValue<=0) {
+      let resultadoCookie = actualValue - parametersResult;
+      if (resultadoCookie<=0) {
         response.cookie(
           'total',
           100,
@@ -81,12 +81,12 @@ export class AppController {
       } else {
         response.cookie(
           'total',
-          newValue,
+          resultadoCookie,
           {
             signed: true,
           }
         )
-        return "El nuevo valor es: "+newValue;
+        return "Nuevo valor: "+resultadoCookie;
       }
     } else {
       response.cookie(
@@ -100,19 +100,19 @@ export class AppController {
     }
   }
 
-  // Multiplicacion
-  @Put('multiplicacion/:first_value/:second_value')
+  // REALIZAR MULTIPLICACIÓN
+  @Put('multiplicar/:valor1/:valor2')
   @HttpCode(200)
   multiplicacion(
     @Param() values,
     @Req() request,
     @Res({passthrough: true}) response,
   ){
-    let parametersResult = Number(values.first_value) * Number(values.second_value);
+    let parametersResult = Number(values.valor1) * Number(values.valor2);
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
-      let newValue = actualValue - parametersResult;
-      if (newValue<=0) {
+      let resultadoCookie = actualValue - parametersResult;
+      if (resultadoCookie<=0) {
         response.cookie(
           'total',
           100,
@@ -124,12 +124,12 @@ export class AppController {
       } else {
         response.cookie(
           'total',
-          newValue,
+          resultadoCookie,
           {
             signed: true,
           }
         )
-        return "El nuevo valor es: "+newValue;
+        return "El nuevo valor es: "+resultadoCookie;
       }
     } else {
       response.cookie(
@@ -143,8 +143,8 @@ export class AppController {
     }
   }
 
-  // DIVISION
-  @Get('division')
+  // REALIZAR DIVISION
+  @Get('dividir')
   @HttpCode(201)
   division(
     @Headers() headers,
@@ -154,8 +154,8 @@ export class AppController {
     let parametersResult = Number(headers.first_value) / Number(headers.second_value);
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
-      let newValue = actualValue - parametersResult;
-      if (newValue<=0) {
+      let ResutadoCookie = actualValue - parametersResult;
+      if (ResutadoCookie<=0) {
         response.cookie(
           'total',
           100,
@@ -167,12 +167,12 @@ export class AppController {
       } else {
         response.cookie(
           'total',
-          newValue,
+          ResutadoCookie,
           {
             signed: true,
           }
         )
-        return "El nuevo valor es: "+newValue;
+        return "El nuevo valor es: "+ResutadoCookie;
       }
     } else {
       response.cookie(
