@@ -19,10 +19,17 @@ export class AppController {
     @Req() request,
     @Res({passthrough: true}) response,
   ): string {
+
+    //suma de los 2 parámetros
     let parametersResult = Number(values.first_value) + Number(values.second_value);
+
+    //cookies firmadas
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
+      //resultado de la cookie
       let resultadoCookie = actualValue - parametersResult;
+
+      //finalizar juego
       if (resultadoCookie<=0) {
         response.cookie(
           'total',
@@ -33,6 +40,7 @@ export class AppController {
         )
         return "Terminaste el juego"
       } else {
+        //guardar el valor nuevo
         response.cookie(
           'total',
           resultadoCookie,
@@ -43,6 +51,7 @@ export class AppController {
         return "Nuevo valor: "+resultadoCookie;
       }
     } else {
+      //al ejecutar por primera vez
       response.cookie(
         'total',
         100,
@@ -64,10 +73,16 @@ export class AppController {
     @Req() request,
     @Res({passthrough: true}) response,
   ){
+
+    //resultado de la resta
     let parametersResult = Number(values.first_value) - Number(values.second_value);
     response.header['RESULTADO']=parametersResult.toString()
+
+    //firmar cookies
     if (request.signedCookies['total'] != undefined || !isNaN(request.signedCookies['total'])) {
       let actualValue = Number(request.signedCookies['total']);
+
+      //resta de del valor actual de la cookie y el nuevo resultado
       let resultadoCookie = actualValue - parametersResult;
       if (resultadoCookie<=0) {
         response.cookie(
@@ -79,6 +94,8 @@ export class AppController {
         )
         return "Terminaste el juego";
       } else {
+
+        //guardar el nuevo valor de la cookie
         response.cookie(
           'total',
           resultadoCookie,
