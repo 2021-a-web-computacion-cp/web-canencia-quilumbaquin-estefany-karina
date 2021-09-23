@@ -18,14 +18,17 @@ const usuario_service_1 = require("./usuario.service");
 const usuario_crear_dto_1 = require("./dto/usuario-crear.dto");
 const class_validator_1 = require("class-validator");
 let UsuarioController = class UsuarioController {
-    constructor(usuarioservice) {
-        this.usuarioservice = usuarioservice;
+    constructor(usuarioService) {
+        this.usuarioService = usuarioService;
     }
-    listaUsuarios(responses) {
-        responses.render('inicio');
+    inicio(response) {
+        response.render('inicio');
     }
-    obtenerUno(parametroRuta) {
-        return this.usuarioservice.buscarUno(+parametroRuta.idUsuario);
+    listaUsuarios(response) {
+        response.render('usuario/lista');
+    }
+    obtenerUno(parametrosRuta) {
+        return this.usuarioService.buscarUno(+parametrosRuta.idUsuario);
     }
     async crearUno(parametrosCuerpo) {
         const usuarioCrearDto = new usuario_crear_dto_1.UsuarioCrearDto();
@@ -36,18 +39,25 @@ let UsuarioController = class UsuarioController {
             const errores = await class_validator_1.validate(usuarioCrearDto);
             if (errores.length > 0) {
                 console.log(JSON.stringify(errores));
-                throw new common_1.BadRequestException('No envia bien los parametross');
+                throw new common_1.BadRequestException('No envia bien parametros');
             }
             else {
-                return this.usuarioservice.crearUno(usuarioCrearDto);
+                return this.usuarioService.crearUno(usuarioCrearDto);
             }
         }
         catch (error) {
             console.error({ error: error, mensaje: 'Errores en crear usuario' });
-            throw new common_1.InternalServerErrorException('error de servidor');
+            throw new common_1.InternalServerErrorException('Error servidor');
         }
     }
 };
+__decorate([
+    common_1.Get('inicio'),
+    __param(0, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "inicio", null);
 __decorate([
     common_1.Get('lista-usuarios'),
     __param(0, common_1.Res()),

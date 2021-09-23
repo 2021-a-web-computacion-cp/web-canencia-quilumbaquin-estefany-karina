@@ -16,10 +16,25 @@ let UsuarioService = class UsuarioService {
     constructor(prisma) {
         this.prisma = prisma;
     }
+    buscarMuchos(parametrosBusqueda) {
+        const or = parametrosBusqueda.busqueda
+            ? {
+                OR: [
+                    { nombre: { contains: parametrosBusqueda.busqueda } },
+                    { apellido: { contains: parametrosBusqueda.busqueda } },
+                ],
+            }
+            : {};
+        return this.prisma.ePN_USUARIO.findMany({
+            where: or,
+            take: Number(parametrosBusqueda.take) || undefined,
+            skip: Number(parametrosBusqueda.skip) || undefined,
+        });
+    }
     buscarUno(id) {
         return this.prisma.ePN_USUARIO.findUnique({
             where: {
-                id: id,
+                Id: id,
             },
         });
     }
@@ -31,17 +46,19 @@ let UsuarioService = class UsuarioService {
     actualizarUno(parametrosActualizar) {
         return this.prisma.ePN_USUARIO.update({
             data: parametrosActualizar.data,
-            where: parametrosActualizar.where,
+            where: {
+                Id: parametrosActualizar.id,
+            },
         });
     }
-    eliminarUno(where) {
+    eliminarUno(id) {
         return this.prisma.ePN_USUARIO.delete({
-            where: where,
+            where: { Id: id },
         });
     }
 };
 UsuarioService = __decorate([
-    common_1.Injectable,
+    common_1.Injectable(),
     __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], UsuarioService);
 exports.UsuarioService = UsuarioService;

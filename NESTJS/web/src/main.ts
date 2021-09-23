@@ -1,14 +1,17 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-//import { copyFileSync } from "fs";
 const cookieParser = require('cookie-parser'); // Importar cosas en JS
 const express = require('express');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-//iMportar cosas en JS
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app: any = await NestFactory.create(AppModule);
+  app.set('view engine', 'ejs');
+
+
+
+
   app.use(express.static('publico')); // Servidor Web Estatico
   app.use(cookieParser('Me agradan los poliperros')); // Secreto Cookies
   app.use(// Session
@@ -21,174 +24,213 @@ async function bootstrap() {
       store: new FileStore(),
     }),
   );
-  await app.listen(3000);
+  await app.listen(3000); // PUERTO
+  // package.json
+  // npm run start
 }
+
 bootstrap();
+
 /*
-//tipos de variables
-//MUTABLES ->reasignar -> =
-var variableUno = 1; //NO USAMOS VAR !
+
+
+abstract class Nombre {
+    public nombrePropiedad?: string; // undefined
+    private apellidoPropiedad: string = 'Eguez';
+    protected edad = 1; // number (Duck Typing)
+    static comun: number = 10;
+    propiedadPublica: string;
+    constructor(
+        propiedadPublicaParametro: string, // parametro
+        public propiedadRapido: string, // transforma una propiedad
+    ) {
+        this.propiedadPublica = propiedadPublicaParametro;
+        this.propiedadRapido;
+    }
+
+    public funcionPublica(parametroString: string): void {
+        // no hay return = undefined
+    }
+
+    private funcionPrivada(parametroString: string, // ? = puede ser undefined
+                           parametroNumber?: number)  { // omitir :void (defecto)
+        // no hay return = undefined
+    }
+
+    protected funcionPublica(): number {
+        return 1;
+    }
+
+    static funcionEstatica(): string {
+        return 'string';
+    }
+
+}
+// package.json
+// npm run start
+// nodejs command prompt
+
+/// VARIABLES
+// TIPOS DE VARIABLES
+
+// MUTABLES ( reasignar -> = )
+var variableUno = 1; // NO USAMOS VAR !
 let variableDos = 2;
-
-variableUno=3;
+variableUno = 3;
 variableDos = 4;
-
-//INMUTABLES (No se pueden reasignar X-> !=)
+// INMUTABLES ( No se pueden reasignar X -> != )
 const variableTres = 5;
-//variableTres = 2; ERROR!
+// variableTres = 2; // ERROR!
 
+// PRIMITIVAS PRIMITIVAS (Typescript)
 
-//PRIMITIVAS PRIMITIVAS
-const texto: string = ''; //"" ´´
+const texto: string = ''; // "" ``
 const numeroEntero: number = 1;
 const numeroFlotante: number = 1.2;
-const soyEstudinte: boolean = true;
-const noDefinido: undefined;
-const noHayNada: null;
+const soyEstudiante: boolean = true; // false
+const noDefinido = undefined;
+const noHayNada = null;
 const fecha: Date = new Date();
-
-//Duck Typing
-const textoDos = 'Kari';
-let cualquierCosa: any = 'Estefany';
+// Duck Typing
+const textoDos = 'Adrian';
+let cualquierCosa: any = 'Vicente';
 cualquierCosa = 1;
 cualquierCosa = true;
 cualquierCosa = new Date();
 
-class Usuario{
-    contructor(
-      public nombre: string,
-    public apellido: string
-){
-
+class Usuario {
+    constructor(
+        public nombre: string,
+        public apellido: string
+    ) {
+    }
 }
-}
 
-const usuario: Usuario = new Usuario('kari', 'Canencia');
+const usuario: Usuario = new Usuario('Adrian', 'Eguez');
 usuario.nombre;
 usuario.apellido;
 
-interface UsuarioInterface{
+interface UsuarioInterface {
     nombre: string;
     apellido: string;
-    edad?: number; //? => Opcional // valor por defecto undefined
+    edad?: number; // ? => Opcional // Valor por defecto es undefined
 }
 
-//PUNTEROS REFERENCIAS
-//PRIMITIVAS
-let edadAntigua = 22;
-let otraEdad = edadAntigua;
-otraEdad -= 1;
-
-//Objeto
-let objetoEdad = {
-    edad: 22;
+let objetoUsuario: UsuarioInterface = {
+    nombre: 'Adrian',
+    apellido: 'Eguez',
 };
+objetoUsuario.nombre;
+objetoUsuario.apellido;
+objetoUsuario.edad;
+console.log(usuario);
+console.log(objetoUsuario);
 
-let otraEdadObjeto = objetoEdad; //REFERENCIA
-otraEdadObjeto.edad = otraEdad.edad+1; //23
+// PUNTEROS REFERENCIAS
+
+// PRIMITIVAS
+let edadAntigua = 22;
+let otraEdad = edadAntigua; // VALOR
+edadAntigua += 1; // 23
+otraEdad -= 1; // 21
+
+// Objeto
+let objetoEdad = {
+    edad: 22,
+};
+let otraEdadObjeto = objetoEdad; // REFERENCIA
+otraEdadObjeto.edad = otraEdadObjeto.edad + 1; // 23
 console.log(otraEdadObjeto.edad);
 objetoEdad.edad; // 23
 console.log(otraEdadObjeto.edad);
-objetoEdad.edad=objetoEdad.edad+1;
-otraEdadObjeto.edad; //24
+objetoEdad.edad = objetoEdad.edad + 1; // 24
+otraEdadObjeto.edad; // 24
+let otraEdadObjetoClonado = {...objetoEdad}; // Clonación Objetos
+const arregloEjemplo = [1, 2, 3]
+let arregloClonado = [...arregloEjemplo]; // Clonación Arreglos
 
-//ARREGLOS
-let otraEdadObjetoClonado = {...objetoEdad}; //Clonación Objetos
-const  arregloEjemplo = [1,2,3]
-let arregloClonado = [...arregloEjemplo];//Clonacion Arreglos
+// Arreglos
 
+const arregloTodo = [1, '', true, null, new Date()];
+const arregloNumeros: number[] = [1, 2, 3, 4, 5];
 
-// ARREGLOS
-const  arregloTodo = [1,'',true,null,new Date()];
-const arregloNumeros: number[] = [1,2,3,4,5];
-
-function funcionConNombre(){
-
+function funcionConNombre() {
 }
 
 const indice = arregloNumeros
-  .findIndex(
-    (numero) => { //Funcion anonima xq no tiene nombre
-        const elValorIgualAtres: boolean = numero === 3; //
-        return elValorIgualAtres //Condicion -> boolean
-    },
-    //function () {-> fucnion anonima por q no tiene nombre
-    //
-    //}
-  );
-
+    .findIndex(
+        (numero) => { // Funcion Anonima xq no tiene nombre
+            const elValorEsIgualAtres: boolean = numero === 3;
+            return elValorEsIgualAtres  // Condicion -> boolean
+        },
+        // function () { -> Funcion Anonima xq no tiene nombre
+        //
+        // }
+    );
 arregloNumeros[indice] = 6
-//agregar al final
+// agregar al final
 arregloNumeros.push(6)
-//agragar al principio
+// agregar al principio
 arregloNumeros.unshift(0)
 
-
-//CONDICIONALES truty y falsy
+// CONDICIONES -> Truty y Falsy
 const numeroOrden = 0;
-if (numeroOrden){
-    console.log('Truty');
-}else {
+if (numeroOrden) {
+  console.log('Truty');
+} else {
+  console.log('Falsy'); // FALSY
+}
+if (1) {
+  console.log('Truty'); // TRUTY
+} else {
+  console.log('Falsy');
+}
+if (-1) {
+    console.log('Truty'); // TRUTY
+} else {
     console.log('Falsy');
+}
+if ("") {
+    console.log('Truty');
+} else {
+    console.log('Falsy'); // FALSY
+}
+if ("a") {
+    console.log('Truty'); // TRUTY
+} else {
+    console.log('Falsy');
+}
+if ({}) {
+    console.log('Truty');
+} else {
+    console.log('Falsy'); // FALSY
+}
+if ({a:1}) {
+    console.log('Truty'); // TRUTY
+} else {
+    console.log('Falsy');
+}
+if ([]) {
+    console.log('Truty');
+} else {
+    console.log('Falsy'); // FALSY
+}
+if ([1]) {
+    console.log('Truty');// TRUTY
+} else {
+    console.log('Falsy');
+}
+if (null) {
+    console.log('Truty');
+} else {
+    console.log('Falsy'); // FALSY
+}
+if (undefined) {
+    console.log('Truty');
+} else {
+    console.log('Falsy'); // FALSY
 }
 
-//string
-if (""){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
-if ("a"){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
 
-//OBJETOS
-if ({}){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
 
-if ({a:1}){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
-
-//Arreglos
-if ([1]){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
-
-//null
-if (null){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}
-
-//no definido
-if (undefined){
-    console.log('Truty');
-}else{
-    console.log('Falsy');
-}*/
-/*
-abstract class Nombre {
-  public nombrePropiedad?: string; //undefined
-  private apellidoPropiedad: string = 'Canencia';
-  protected edad = 1; // number (Duck Typing)
-  static comun: number = 10;
-  propiedadPublica: string;
-  constructor(
-    propiedadPublicaParametros: string, //parametro
-    public propiedadedadRapido: string, //transformar la propiedad
-  ) {
-    this.propiedadedadRapido = propiedadPublicaParametros;
-    this.propiedadedadRapido;
-  }
-}*/
+*/

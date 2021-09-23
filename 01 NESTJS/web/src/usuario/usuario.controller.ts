@@ -2,56 +2,72 @@ import {
   BadRequestException,
   Body,
   Controller,
-  Delete,
   Get,
   InternalServerErrorException,
   Param,
-  Post, Res,
+  Post,
+  Res,
 } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
 import { UsuarioCrearDto } from './dto/usuario-crear.dto';
 import { validate } from 'class-validator';
 
 // http://localhost:3000/usuario/......
-@Controller( 'usuario')
-export class UsuarioController{
-
+@Controller('usuario')
+export class UsuarioController {
   constructor(
-      //inyeccion de dependencias
-      private usuarioservice: UsuarioService
+      // Inyeccion dependencias
+      private usuarioService: UsuarioService,
   ) {}
 
+  @Get('inicio')
+  inicio(@Res() response) {
+    response.render('inicio');
+  }
+
   @Get('lista-usuarios')
-  listaUsuarios(@Res() responses){
-    responses.render('inicio');
+  listaUsuarios(@Res() response) {
+    response.render('usuario/lista');
   }
 
   @Get(':idUsuario')
-  obtenerUno(@Param() parametroRuta) {
-    return this.usuarioservice.buscarUno(+parametroRuta.idUsuario);
+  obtenerUno(@Param() parametrosRuta) {
+    /*
+    this.usuarioService.crearUno({
+      apellido: '...',
+      fechaCreacion: new Date(),
+      nombre: '...',
+    });
+    this.usuarioService.actualizarUno({
+      id: 1,
+      data: {
+        nombre: '...',
+        // fechaCreacion: '...',
+        // fechaCreacion: new Date(),
+      },
+    });
+    this.usuarioService.eliminarUno(1);
+    */
+    return this.usuarioService.buscarUno(+parametrosRuta.idUsuario);
   }
 
   @Post()
-  async crearUno(@Body() parametrosCuerpo){
+  async crearUno(@Body() parametrosCuerpo) {
     const usuarioCrearDto = new UsuarioCrearDto();
     usuarioCrearDto.nombre = parametrosCuerpo.nombre;
     usuarioCrearDto.apellido = parametrosCuerpo.apellido;
     usuarioCrearDto.fechaCreacion = parametrosCuerpo.fechaCreacion;
-
-    try{
+    try {
       const errores = await validate(usuarioCrearDto);
-
-      if(errores.length > 0){
+      if (errores.length > 0) {
         console.log(JSON.stringify(errores));
-        throw new BadRequestException('No envia bien los parametross');
+        throw new BadRequestException('No envia bien parametros');
+      } else {
+        return this.usuarioService.crearUno(usuarioCrearDto);
       }
-      else{
-        return this.usuarioservice.crearUno(usuarioCrearDto);
-      }
-
-    }catch (error){
-      console.error({error: error, mensaje: 'Errores en crear usuario'});
-      throw new InternalServerErrorException('error de servidor');
+    } catch (error) {
+      console.error({ error: error, mensaje: 'Errores en crear usuario' });
+      throw new InternalServerErrorException('Error servidor');
     }
   }
 }

@@ -8,7 +8,7 @@ import {
   HttpCode,
   InternalServerErrorException,
   Param,
-  Post, Put,
+  Post,
   Query,
   Req,
   Res,
@@ -26,6 +26,7 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
   // import {Controller, Get, HttpCode} from '@nestjs/common';
   @Get('texto')
   @HttpCode(200)
