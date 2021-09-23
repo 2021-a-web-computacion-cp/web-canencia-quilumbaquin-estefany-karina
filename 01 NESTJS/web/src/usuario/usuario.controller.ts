@@ -6,6 +6,7 @@ import {
   InternalServerErrorException,
   Param,
   Post,
+  Query,
   Res,
 } from '@nestjs/common';
 import { UsuarioService } from './usuario.service';
@@ -16,18 +17,70 @@ import { validate } from 'class-validator';
 @Controller('usuario')
 export class UsuarioController {
   constructor(
-      // Inyeccion dependencias
-      private usuarioService: UsuarioService,
+    // Inyeccion dependencias
+    private usuarioService: UsuarioService,
   ) {}
+
+  @Post('/eliminar-usuario/:idUsuario')
+  async eliminarUsuario(@Res() response, @Param() parametrosRuta){
+    try{
+      await this.usuarioService.eliminarUno(+parametrosRuta.id);
+      response.redirect( '/usuario/lista-usuarios' +'?mensaje=Se eliminó al usuario  ',);
+    } catch (error){
+      console.error(error);
+      throw new InternalServerErrorException('Error')
+    }
+  }
+
+  @Post('crear-usuario-formulario')
+  async crearUsuarioFormulario(
+      @Res() response,
+      @Body() parametrosCuerpo,){
+    try{
+      await this.usuarioService.crearUno({
+        nombre: parametrosCuerpo.nombre,
+        apellido: parametrosCuerpo.apellido,
+      });
+      response.redirect( '/usuario/vista-crear' + '?mensaje=Se creo el usuario' + parametrosCuerpo.nombre);
+    } catch (error) {
+      console.error(error);
+      throw new InternalServerErrorException('Error Creando usuario');
+    }
+  }
 
   @Get('inicio')
   inicio(@Res() response) {
     response.render('inicio');
   }
 
+
+  @Get('vista-crear')
+  vistaCrear(@Res() response, @Query() parametrosConsulta) {
+    response.render('usuario/crear',{
+      datos: {
+        mensaje: parametrosConsulta.mensaje,
+      },
+    });
+  }
+
   @Get('lista-usuarios')
-  listaUsuarios(@Res() response) {
-    response.render('usuario/lista');
+  async listaUsuarios(@Res() response, @Query() parametrosConsulta) {
+    try {
+      // validar parametros de consulta con un dto
+      const respuesta = await this.usuarioService.buscarMuchos({
+        skip: parametrosConsulta.skip ? +parametrosConsulta.skip : undefined,
+        take: parametrosConsulta.take ? +parametrosConsulta.take : undefined,
+        busqueda: parametrosConsulta.busqueda ? parametrosConsulta.busqueda : undefined,
+      });
+      response.render('usuario/lista', {
+        datos: {
+          usuarios: respuesta,
+          mensaje: parametrosConsulta.mensaje,
+        },
+      });
+    } catch (error) {
+      throw new InternalServerErrorException('Error del servidor');
+    }
   }
 
   @Get(':idUsuario')

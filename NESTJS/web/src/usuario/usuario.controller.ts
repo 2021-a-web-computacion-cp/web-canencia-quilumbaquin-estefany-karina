@@ -26,7 +26,7 @@ export class UsuarioController {
   }
 
   @Get('vista-crear')
-  vistaCrear(@Res() response){
+  vistaCrear(@Res() response) {
     response.render('usuario-crear');
   }
 

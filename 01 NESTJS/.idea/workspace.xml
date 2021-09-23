@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4c4859ed-fbe3-4780-b366-3f5729cc2630" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma2.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.bin/prisma2.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/download.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/download.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/download.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/dist/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/download/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/download/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/introspection-engine-windows.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/migration-engine-windows.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/introspection-engine" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/introspection-engine.gz.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/introspection-engine.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/libquery-engine" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/libquery-engine.gz.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/libquery-engine.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/migration-engine" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/migration-engine.gz.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/migration-engine.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/prisma-fmt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/prisma-fmt.gz.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/node_modules/.cache/prisma/master/2452cc6313d52b8b9a96999ac0e974d0aedf88db/windows/prisma-fmt.sha256" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/prisma-fmt-windows.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@prisma/engines/query_engine-windows.dll.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/child.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/alert.60ea9f84.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/array.1a36c222.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/boolean.9188b434.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/browser2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/chevron-down.24f76e3c.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/cross.c2610cf5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/datetime.a3bf710a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/download.8d34b65a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/ellipsis.a8c5a34a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/enum.7ec0b64c.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/folder.d77b8eaf.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/hamburger.5fdadeac.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/logotype.a960b169.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/number.85ddf96b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/object.0ba944a6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/play.8811691e.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/plus.8fbf7ad3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/refresh.d5448ccc.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/search.2ed766ce.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/settings.5ad25af2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/string.ea615a24.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/tick-indeterminate.aec8a44d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/tick.8cbb6a93.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/assets/vendor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/databrowser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/favicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/fonts/Inter.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/fonts/RobotoMono.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/icon-1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/pages/databrowser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/pages/splash.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/public/splash.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/build/xdg-open" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/install/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/preinstall/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/fixtures/mongo/prisma/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/generator-build/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/runtime/index-browser.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/runtime/index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/runtime/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/runtime/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/backup-index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/backup-index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/backup-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/colors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/default-index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/default-index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/default-index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/get-packed-client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/mock-fs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/postinstall.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/scripts/postinstall.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/color-format/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/corruption/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/error-link/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/incorrect-column-type/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/invalid-input/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/missing-column/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/missing-relation/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/missing-table/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/object-transaction/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/raw-transaction/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/source-map-support/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/errors/too-many-engines/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/aggregations/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/async-hooks/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/batch-findUnique/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/blog-dot-env-both-conflict/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/blog-dot-env-both/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/blog-dot-env-root/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/blog/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/chaining/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/chmod/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/client-engine/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/count/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/disconnect-finally/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/disconnect-race/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/disconnect-while-query/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/distinct/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/enums/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/exit-hook/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/filter-nullable/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/findFirst/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/float-napi/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/groupBy/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/ignore/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/interactive-transactions/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/middlewares-manipulation/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/middlewares-transaction/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/middlewares/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/minimal/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/mixed-transaction/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/multi-connect/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/orderBy-relation/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/prisma-promises/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/raw-transactions/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/rejectNotFound/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/relations/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/removed-experimental-flags/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/removed-preview-flags/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/restart/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/rfc3339/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/selectRelationCount/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/transaction/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/uds/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/prisma-client/src/__tests__/integration/happy/validator/dev.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/scripts/install-entry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/prisma/scripts/preinstall-entry.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/web/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/app.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/app.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/app.module.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/app.module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/app.module.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/app.module.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.spec.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.controller.spec.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.module.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.module.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.service.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/app.service.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/main.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/main.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.controller.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.controller.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.controller.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.entity.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.entity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.entity.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.module.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.module.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.services.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.services.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/src/usuario/usuario.services.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/test/app.e2e-spec.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/test/app.e2e-spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/test/app.e2e-spec.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/tsconfig.tsbuildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.entity.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.service.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/web/dist/usuario/usuario.service.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.services.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.services.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/dist/usuario/usuario.services.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/prisma/migrations/20210910185223_migracion1/migration.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/web/prisma/schema.prisma" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sessions/HNeXHrxdhETmu3YNYge6RXLnqI9sOK1r.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sessions/Ymrd9nmaOUgkQ1b1XQ-2pprWVc1eVxQd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sessions/zrQ0BUkjFh5ENnrnp4l38lOs5KGmVlw5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/prisma.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/prisma.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/dto/usuario-crear.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/usuario/dto/usuario-crear.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/usuario/usuario.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/usuario.entity.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/usuario.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/usuario/usuario.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/usuario.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/usuario/usuario.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/usuario/usuario.services.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/comunes/cabecera.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/comunes/cabecera.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/comunes/footer.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/comunes/footer.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/inicio.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/web/views/inicio.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/views/usuarios/lista.ejs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NESTJS/web/dist/tsconfig.build.tsbuildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/../NESTJS/web/dist/tsconfig.build.tsbuildinfo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../NESTJS/web/dist/usuario/usuario.controller.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NESTJS/web/src/usuario/usuario.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../NESTJS/web/src/usuario/usuario.controller.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1yXwqmmlT51DyDg2Ee311HvUAYo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\AdminGamma\Desktop\Estefany\RepoAppWeb\web-canencia-quilumbaquin-estefany-karina\01 NESTJS\web\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c4859ed-fbe3-4780-b366-3f5729cc2630" name="Changes" comment="" />
+      <created>1632411434079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1632411434079</updated>
+      <workItem from="1632411435354" duration="8344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

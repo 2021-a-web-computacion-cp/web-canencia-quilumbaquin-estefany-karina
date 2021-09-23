@@ -58,20 +58,20 @@ export class AppController {
 
   @Get('setear-cookie-insegura')
   setearCookieInsegura(
-      @Req() req, //  request - PETICION
-      @Res() res, //  response - RESPUESTA
+    @Req() req, //  request - PETICION
+    @Res() res, //  response - RESPUESTA
   ) {
     res.cookie(
-        'galletaInsegura', // nombre
-        'Tengo hambre', // valor
+      'galletaInsegura', // nombre
+      'Tengo hambre', // valor
     );
     res.cookie(
-        'galletaSeguraYFirmada', // nombre
-        'Web :3', // valor
-        {
-          secure: true, // solo se transfiera por canales confiables https
-          signed: true, // Encriptacion
-        },
+      'galletaSeguraYFirmada', // nombre
+      'Web :3', // valor
+      {
+        secure: true, // solo se transfiera por canales confiables https
+        signed: true, // Encriptacion
+      },
     );
     res.send('ok'); // return de antes
   }
@@ -91,8 +91,8 @@ export class AppController {
   @Header('Cache-Control', 'none') // Cabeceras de respuesta (response headers)
   @Header('EPN', 'SISTEMAS') // Cabeceras de respuesta (response headers)
   parametrosConsulta(
-      @Query() queryParams,
-      @Param() params,
+    @Query() queryParams,
+    @Param() params,
   ) {
     return {
       parametrosConsulta: queryParams,
@@ -103,8 +103,8 @@ export class AppController {
   @Post('parametros-cuerpo') // 201
   @HttpCode(200)
   parametrosCuerpo(
-      @Body() bodyParams,
-      @Headers() cabecerasPeticion,
+    @Body() bodyParams,
+    @Headers() cabecerasPeticion,
   ) {
     return {
       parametrosCuerpo: bodyParams,

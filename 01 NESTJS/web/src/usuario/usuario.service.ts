@@ -5,8 +5,8 @@ import { Prisma } from '@prisma/client';
 @Injectable()
 export class UsuarioService {
   constructor(
-      // Inyectar dependencias
-      private prisma: PrismaService,
+    // Inyectar dependencias
+    private prisma: PrismaService,
   ) {}
 
   buscarMuchos(parametrosBusqueda: {
@@ -16,13 +16,14 @@ export class UsuarioService {
     // orderBy?: Prisma.EPN_UsuarioOrder;
   }) {
     const or = parametrosBusqueda.busqueda
-        ? {
+      ? {
           OR: [
             { nombre: { contains: parametrosBusqueda.busqueda } },
             { apellido: { contains: parametrosBusqueda.busqueda } },
           ],
         }
-        : {};
+      : {};
+    console.log(or);
     return this.prisma.ePN_USUARIO.findMany({
       where: or,
       take: Number(parametrosBusqueda.take) || undefined,
@@ -33,7 +34,7 @@ export class UsuarioService {
   buscarUno(id: number) {
     return this.prisma.ePN_USUARIO.findUnique({
       where: {
-        Id: id,
+        id: id,
       },
     });
   }
@@ -51,14 +52,14 @@ export class UsuarioService {
     return this.prisma.ePN_USUARIO.update({
       data: parametrosActualizar.data,
       where: {
-        Id: parametrosActualizar.id,
+        id: parametrosActualizar.id,
       },
     });
   }
 
   eliminarUno(id: number) {
     return this.prisma.ePN_USUARIO.delete({
-      where: { Id: id },
+      where: { id: id },
     });
   }
 }

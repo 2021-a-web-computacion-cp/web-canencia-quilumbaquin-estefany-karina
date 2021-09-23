@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 
 export class UsuarioCrearDto {
-  @IsNotEmpty()
+  @IsNotEmpty() // requerido
   @IsString()
   @MinLength(3)
   @MaxLength(10)
@@ -20,6 +20,6 @@ export class UsuarioCrearDto {
   @MaxLength(10)
   nombre: string;
 
-  @IsEmpty()
+  @IsEmpty() // debe estar vacio
   fechaCreacion: string;
 }

@@ -25,6 +25,7 @@ let UsuarioService = class UsuarioService {
                 ],
             }
             : {};
+        console.log(or);
         return this.prisma.ePN_USUARIO.findMany({
             where: or,
             take: Number(parametrosBusqueda.take) || undefined,
@@ -34,7 +35,7 @@ let UsuarioService = class UsuarioService {
     buscarUno(id) {
         return this.prisma.ePN_USUARIO.findUnique({
             where: {
-                Id: id,
+                id: id,
             },
         });
     }
@@ -47,13 +48,13 @@ let UsuarioService = class UsuarioService {
         return this.prisma.ePN_USUARIO.update({
             data: parametrosActualizar.data,
             where: {
-                Id: parametrosActualizar.id,
+                id: parametrosActualizar.id,
             },
         });
     }
     eliminarUno(id) {
         return this.prisma.ePN_USUARIO.delete({
-            where: { Id: id },
+            where: { id: id },
         });
     }
 };

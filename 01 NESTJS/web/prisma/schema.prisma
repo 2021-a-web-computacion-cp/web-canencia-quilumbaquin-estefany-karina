@@ -10,17 +10,18 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model EPN_USUARIO{
-Id              Int @id @default(autoincrement())
-fechaCreacion   DateTime @default(now())
-apellido        String
-nombre          String?
-mascotas        Mascota[]
+model EPN_USUARIO {
+  id                Int         @id @default(autoincrement())
+  fechaCreacion     DateTime    @default(now())
+  apellido          String
+  nombre            String?
+  mascotas          Mascota[]
 }
 
-model Mascota{
-id           Int    @id @default(autoincrement())
-nombre       String
-usuario      EPN_USUARIO @relation(fields: [usuarioId], references: [Id])
-usuarioId    Int
+model Mascota {
+  id                Int         @id @default(autoincrement())
+  nombre            String
+  usuario           EPN_USUARIO @relation(fields: [usuarioId], references: [id])
+  usuarioId         Int
 }
+

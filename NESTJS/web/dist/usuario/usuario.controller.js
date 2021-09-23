@@ -24,6 +24,9 @@ let UsuarioController = class UsuarioController {
     inicio(response) {
         response.render('inicio');
     }
+    vistaCrear(response) {
+        response.render('usuario-crear');
+    }
     async listaUsuarios(response, parametrosConsulta) {
         try {
             const respuesta = await this.usuarioService.buscarMuchos({
@@ -73,6 +76,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], UsuarioController.prototype, "inicio", null);
+__decorate([
+    common_1.Get('vista-crear'),
+    __param(0, common_1.Res()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], UsuarioController.prototype, "vistaCrear", null);
 __decorate([
     common_1.Get('lista-usuarios'),
     __param(0, common_1.Res()),

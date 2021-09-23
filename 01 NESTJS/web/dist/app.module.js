@@ -10,19 +10,24 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
+const prisma_service_1 = require("./prisma.service");
+const usuario_module_1 = require("./usuario/usuario.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [],
+        imports: [
+            usuario_module_1.UsuarioModule,
+        ],
         controllers: [
-            app_controller_1.AppController
+            app_controller_1.AppController,
         ],
         providers: [
-            app_service_1.AppService
+            app_service_1.AppService,
+            prisma_service_1.PrismaService,
         ],
         exports: [
-            app_service_1.AppService
+            app_service_1.AppService,
         ],
     })
 ], AppModule);
