@@ -12,23 +12,15 @@ const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
 const prisma_service_1 = require("./prisma.service");
 const usuario_module_1 = require("./usuario/usuario.module");
+const estudiante_module_1 = require("./estudiante/estudiante.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [
-            usuario_module_1.UsuarioModule,
-        ],
-        controllers: [
-            app_controller_1.AppController,
-        ],
-        providers: [
-            app_service_1.AppService,
-            prisma_service_1.PrismaService,
-        ],
-        exports: [
-            app_service_1.AppService,
-        ],
+        imports: [usuario_module_1.UsuarioModule, estudiante_module_1.EstudianteModule],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService, prisma_service_1.PrismaService],
+        exports: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -2,10 +2,12 @@ import {
   BadRequestException,
   Body,
   Controller,
+  Delete,
   Get,
   InternalServerErrorException,
   Param,
   Post,
+  Put,
   Query,
   Res,
 } from '@nestjs/common';
@@ -13,63 +15,48 @@ import { UsuarioService } from './usuario.service';
 import { UsuarioCrearDto } from './dto/usuario-crear.dto';
 import { validate } from 'class-validator';
 
-// http://localhost:3000/usuario/......
+// hpttp://localhost:3000/usuario/
 @Controller('usuario')
 export class UsuarioController {
-  constructor(
-    // Inyeccion dependencias
-    private usuarioService: UsuarioService,
-  ) {}
-
-  @Post('eliminar-usuario/:idUsuario')
-  async eliminarUsuario(@Res() response, @Param() parametrosRuta) {
-    try {
-      await this.usuarioService.eliminarUno(+parametrosRuta.idUsuario);
-      response.redirect(
-        '/usuario/lista-usuarios' + '?mensaje=Se elimino al usuario',
-      );
-    } catch (error) {
-      console.error(error);
-      throw new InternalServerErrorException('Error');
-    }
-  }
-
-  @Post('crear-usuario-formulario')
-  async crearUsuarioFormulario(@Res() response, @Body() parametrosCuerpo) {
-    try {
-      const respuestaUsuario = await this.usuarioService.crearUno({
-        nombre: parametrosCuerpo.nombre,
-        apellido: parametrosCuerpo.apellido,
-      });
-      response.redirect(
-        '/usuario/vista-crear' +
-          '?mensaje=Se creo el usuario ' +
-          parametrosCuerpo.nombre,
-      );
-    } catch (error) {
-      console.error(error);
-      throw new InternalServerErrorException('Error creando usuario');
-    }
-  }
-
-  @Get('vista-crear')
-  vistaCrear(@Res() response, @Query() parametrosConsulta) {
-    response.render('usuario/crear', {
-      datos: {
-        mensaje: parametrosConsulta.mensaje,
-      },
-    });
-  }
+  constructor(private usuarioService: UsuarioService) {}
 
   @Get('inicio')
   inicio(@Res() response) {
     response.render('inicio');
   }
 
+  @Get('vista-crear')
+  vistaCrear(@Res() response, @Query() qqueryParams) {
+    response.render('usuario/crear', {
+      datos: {
+        mensaje: qqueryParams.mensaje,
+      },
+    });
+  }
+
+  @Post('crear-usuario-formulario')
+  async crearUsuario(@Res() response, @Body() bodyParams) {
+    try {
+      const userRes = await this.usuarioService.crearUno({
+        nombre: bodyParams.nombre,
+        apellido: bodyParams.apellido,
+      });
+      //response.send(userRes); -> ENVIA LA BASE LOS DATOS PERO DEVUELVE JSON
+      response.redirect(
+        '/usuario/vista-crear' +
+          '?mensaje=Se creo el usuario ' +
+          bodyParams.nombre,
+      );
+    } catch (e) {
+      console.log(e);
+      throw new InternalServerErrorException(e);
+    }
+  }
+
   @Get('lista-usuarios')
   async listaUsuarios(@Res() response, @Query() parametrosConsulta) {
     try {
-      // validar parametros de consulta con un dto
+      //Validar parametros de consulta con un DTO (TODO)
       const respuesta = await this.usuarioService.buscarMuchos({
         skip: parametrosConsulta.skip ? +parametrosConsulta.skip : undefined,
         take: parametrosConsulta.take ? +parametrosConsulta.take : undefined,
@@ -77,6 +64,7 @@ export class UsuarioController {
           ? parametrosConsulta.busqueda
           : undefined,
       });
+      console.log(respuesta);
       response.render('usuario/lista', {
         datos: {
           usuarios: respuesta,
@@ -88,44 +76,53 @@ export class UsuarioController {
     }
   }
 
-  @Get(':idUsuario')
-  obtenerUno(@Param() parametrosRuta) {
-    /*
-    this.usuarioService.crearUno({
-      apellido: '...',
-      fechaCreacion: new Date(),
-      nombre: '...',
-    });
-    this.usuarioService.actualizarUno({
-      id: 1,
-      data: {
-        nombre: '...',
-        // fechaCreacion: '...',
-        // fechaCreacion: new Date(),
-      },
-    });
-    this.usuarioService.eliminarUno(1);
-    */
-    return this.usuarioService.buscarUno(+parametrosRuta.idUsuario);
+  @Post('eliminar-usuario/:idUsuario')
+  async elminarUsuario(@Res() response, @Param() routeParams) {
+    try {
+      await this.usuarioService.eliminarUno(+routeParams.idUsuario);
+      response.redirect(
+        '/usuario/lista-usuarios' + '?mensaje=Se elimino el usuario',
+      );
+    } catch (e) {
+      console.log(e);
+      throw new InternalServerErrorException(e);
+    }
   }
 
-  @Post()
+  @Get(':idUsuario')
+  obtenerUno(@Param() parametroRuta) {
+    return this.usuarioService.buscarUno(+parametroRuta.idUsuario);
+  }
+
+  @Post(':idUsuario')
   async crearUno(@Body() parametrosCuerpo) {
-    const usuarioCrearDto = new UsuarioCrearDto();
-    usuarioCrearDto.nombre = parametrosCuerpo.nombre;
-    usuarioCrearDto.apellido = parametrosCuerpo.apellido;
-    usuarioCrearDto.fechaCreacion = parametrosCuerpo.fechaCreacion;
+    const usuarioCrearDTO = new UsuarioCrearDto();
+    usuarioCrearDTO.nombre = parametrosCuerpo.nombre;
+    usuarioCrearDTO.apellido = parametrosCuerpo.apellido;
+    usuarioCrearDTO.fechaCreacion = parametrosCuerpo.fechaCreacion;
     try {
-      const errores = await validate(usuarioCrearDto);
-      if (errores.length > 0) {
-        console.log(JSON.stringify(errores));
-        throw new BadRequestException('No envia bien parametros');
+      const error = await validate(usuarioCrearDTO);
+      if (error.length > 0) {
+        console.log(JSON.stringify(error));
+        throw new BadRequestException('no envia bien parametros');
       } else {
-        return this.usuarioService.crearUno(usuarioCrearDto);
+        return this.usuarioService.crearUno(usuarioCrearDTO);
       }
     } catch (error) {
       console.error({ error: error, mensaje: 'Errores en crear usuario' });
-      throw new InternalServerErrorException('Error servidor');
+      throw new InternalServerErrorException('error servidor');
     }
+  }
+
+  @Put(':idUsuario')
+  actualizarUno(@Param() parametroRuta) {
+    //se utiliza los parametros de cuerpo y de ruta
+    return this.usuarioService.actualizarUno(parametroRuta.idUsuario);
+  }
+
+  @Delete(':idUsuario')
+  borrarUno(@Param() parametroRuta) {
+    //se utiliza los parametros de ruta
+    return this.usuarioService.eliminarUno(parametroRuta.idUsuario);
   }
 }

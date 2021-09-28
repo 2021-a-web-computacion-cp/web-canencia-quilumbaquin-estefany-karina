@@ -4,15 +4,14 @@ import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class UsuarioService {
-  constructor(
-    // Inyectar dependencias
-    private prisma: PrismaService,
-  ) {}
-
+  constructor(private prisma: PrismaService) {}
+  buscarUno(id: number) {
+    return this.prisma.ePN_USUARIO.findUnique({ where: { id: id } });
+  }
   buscarMuchos(parametrosBusqueda: {
-    skip?: number; // registros que te saltes 0 10 20
-    take?: number; // registros tomas 10 10 10
-    busqueda?: string; // Adr
+    skip?: number; //Registros que te saltas
+    take?: number; //Registros que tomas
+    busqueda?: string; // Lo que el usuario busca
     // orderBy?: Prisma.EPN_UsuarioOrder;
   }) {
     const or = parametrosBusqueda.busqueda
@@ -23,28 +22,15 @@ export class UsuarioService {
           ],
         }
       : {};
-    console.log(or);
     return this.prisma.ePN_USUARIO.findMany({
       where: or,
       take: Number(parametrosBusqueda.take) || undefined,
       skip: Number(parametrosBusqueda.skip) || undefined,
     });
   }
-
-  buscarUno(id: number) {
-    return this.prisma.ePN_USUARIO.findUnique({
-      where: {
-        id: id,
-      },
-    });
-  }
-
   crearUno(usuario: Prisma.EPN_USUARIOCreateInput) {
-    return this.prisma.ePN_USUARIO.create({
-      data: usuario,
-    });
+    return this.prisma.ePN_USUARIO.create({ data: usuario });
   }
-
   actualizarUno(parametrosActualizar: {
     id: number;
     data: Prisma.EPN_USUARIOUpdateInput;
@@ -56,7 +42,6 @@ export class UsuarioService {
       },
     });
   }
-
   eliminarUno(id: number) {
     return this.prisma.ePN_USUARIO.delete({
       where: { id: id },

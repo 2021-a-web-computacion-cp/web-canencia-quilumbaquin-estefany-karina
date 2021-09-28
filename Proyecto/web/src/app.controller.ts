@@ -9,106 +9,194 @@ import {
   InternalServerErrorException,
   Param,
   Post,
+  Put,
   Query,
   Req,
   Res,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 
-// npm i cookie-parser express-session session-file-store
-
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {
+  constructor(private readonly appService: AppService) {}
+
+  // -------------------------------------------------------------------------------------
+  // INICIO DEBER 03 CALCULADORA COOKIES
+  @Get('suma') // QUERY PARAMS
+  @HttpCode(200)
+  Suma(
+    @Query() queryParams,
+    @Res({ passthrough: true }) result,
+    @Req() request,
+  ) {
+    if (request.signedCookies['total'] == undefined) {
+      result.cookie('total', 100, {
+        signed: true,
+      });
+      result.sendStatus(200);
+      return 100;
+    } else {
+      if (request.signedCookies['total'] <= 0) {
+        result.cookie('total', 100, {
+          signed: true,
+        });
+        return 'TERMINASTE EL JUEGO';
+      } else {
+        const number =
+          Number(request.signedCookies['total']) -
+          Number(queryParams.uno) -
+          Number(queryParams.dos);
+
+        result.cookie('total', number, {
+          signed: true,
+        });
+
+        return number;
+      }
+    }
   }
 
-  @Get()
+  @Post('resta') //BODY PARAMS
+  @HttpCode(201)
+  Resta(
+    @Body() bodyParams,
+    @Res({ passthrough: true }) result,
+    @Req() request,
+    @Headers() header,
+  ) {
+    if (request.signedCookies['total'] == undefined) {
+      result.cookie('total', 100, {
+        signed: true,
+      });
+      result.header('result', '100');
+      return 100;
+    } else {
+      if (request.signedCookies['total'] <= 0) {
+        result.cookie('total', 100, {
+          signed: true,
+        });
+        result.header('resultado', '100');
+
+        return 'TERMINASTE EL JUEGO';
+      } else {
+        const number =
+          Number(request.signedCookies['total']) -
+          (Number(bodyParams.uno) - Number(bodyParams.dos));
+        result.cookie('total', number, {
+          signed: true,
+        });
+        result.header('result', number.toString());
+        return number;
+      }
+    }
+  }
+
+  @Put('multiplicacion/:uno/:dos') //ROUTE PARAMS
+  @HttpCode(201)
+  Multiplicacion(
+    @Param() routeParams,
+    @Res({ passthrough: true }) result,
+    @Req() request,
+  ) {
+    if (request.signedCookies['total'] == undefined) {
+      result.cookie('total', 100, {
+        signed: true,
+      });
+      return 100;
+    } else {
+      if (request.signedCookies['total'] <= 0) {
+        result.cookie('total', 100, {
+          signed: true,
+        });
+
+        return 'TERMINASTE EL JUEGO';
+      } else {
+        const numero =
+          Number(request.signedCookies['total']) -
+          Number(routeParams.uno) * Number(routeParams.dos);
+        result.cookie('total', numero, {
+          signed: true,
+        });
+        return numero;
+      }
+    }
+  }
+
+  @Put('division/:uno/:dos') //HEADERS
+  @HttpCode(201)
+  Division(
+    @Param() params,
+    @Res({ passthrough: true }) result,
+    @Req() request,
+  ) {
+    if (request.signedCookies['total'] == undefined) {
+      result.cookie('total', 100, {
+        signed: true,
+      });
+      return 100;
+    } else {
+      if (request.signedCookies['total'] <= 0) {
+        result.cookie('total', 100, {
+          signed: true,
+        });
+
+        return 'TERMINASTE EL JUEGO';
+      } else {
+        const number =
+          Number(request.signedCookies['total']) -
+          Number(params.uno) / Number(params.dos);
+        result.cookie('total', number, {
+          signed: true,
+        });
+        return number;
+      }
+    }
+  }
+  // FIN DEBER 03 CALCULADORA COOKIES
+  // -------------------------------------------------------------------------------------
+  @Get() //IMPLICITO HACIA LA RAIZ
   getHello(): string {
     return this.appService.getHello();
   }
-
-  // import {Controller, Get, HttpCode} from '@nestjs/common';
   @Get('texto')
   @HttpCode(200)
-  holaTexto(): string {
-    return 'HOLA TEXTO';
+  helloText(): string {
+    return 'Hola Texto';
   }
-
   @Get('html')
   @HttpCode(201)
-  holaHTML(): string {
+  HelloHTML(): string {
     return '<h1>Hola HTML</h1> <button>Click</button>';
   }
-
   @Get('json')
   @HttpCode(200)
-  holaJSON(): string {
-    return '{mensaje: "Hola json" }';
+  helloJson(): string {
+    return '{mensaje: "Hola JSON"}';
   }
-
   @Get('bad-request')
   badRequest() {
     throw new BadRequestException();
   }
-
   @Get('internal-error')
   internalError() {
     throw new InternalServerErrorException();
   }
-
   @Get('setear-cookie-insegura')
   setearCookieInsegura(
-    @Req() req, //  request - PETICION
-    @Res() res, //  response - RESPUESTA
+    @Req() req, //request - PETICION
+    @Res() res, //response - RESPUESTA
   ) {
-    res.cookie(
-      'galletaInsegura', // nombre
-      'Tengo hambre', // valor
-    );
-    res.cookie(
-      'galletaSeguraYFirmada', // nombre
-      'Web :3', // valor
-      {
-        secure: true, // solo se transfiera por canales confiables https
-        signed: true, // Encriptacion
-      },
-    );
-    res.send('ok'); // return de antes
+    //nombre            valor
+    res.cookie('cookieInsegura', 'esto esta inseguro');
+    res.cookie('cookieSegura', 'esto esta seguro :)', { secure: true });
+    res.send('ok');
   }
-
   @Get('mostrar-cookies')
   mostrarCookies(@Req() req) {
     const mensaje = {
       sinFirmar: req.cookies,
       firmadas: req.signedCookies,
     };
-    // req.signedCookies.total
     return mensaje;
-  }
-
-  @Get('parametros-consulta/:nombre/:apellido')
-  @HttpCode(200)
-  @Header('Cache-Control', 'none') // Cabeceras de respuesta (response headers)
-  @Header('EPN', 'SISTEMAS') // Cabeceras de respuesta (response headers)
-  parametrosConsulta(
-    @Query() queryParams,
-    @Param() params,
-  ) {
-    return {
-      parametrosConsulta: queryParams,
-      parametrosRuta: params,
-    };
-  }
-
-  @Post('parametros-cuerpo') // 201
-  @HttpCode(200)
-  parametrosCuerpo(
-    @Body() bodyParams,
-    @Headers() cabecerasPeticion,
-  ) {
-    return {
-      parametrosCuerpo: bodyParams,
-      cabeceras: cabecerasPeticion,
-    };
   }
 }

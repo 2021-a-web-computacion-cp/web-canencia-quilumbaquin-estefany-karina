@@ -1,0 +1,97 @@
+<%- include('../comunes/header') %>
+
+<h1>Editar Estudiante</h1>
+<div class="container">
+
+    <% const existeMoto = typeof datos.mensaje !== 'undefined' %>
+    <%  if(existeMoto) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= datos.mensaje %>
+        </div>
+    <%} %>
+
+    <!--    DESPLEGAR DATOS ACTUALES-->
+    <div>
+        <h4 style="color: blue">Datos actuales</h4>
+        <span class="border border-info">
+            NOMBRE: <%= datos.estudiante.nombre%>;
+            APELLIDO: <%= datos.estudiante.apellido%>;
+            CALIFICACION <%= datos.estudiante.calificacion%>;
+            EDAD <%= datos.estudiante.edad%>;
+            AÑO <%= datos.estudiante.anio%>;
+        </span>
+    </div>
+    <br>
+    <form style="padding: 10px" class="border border-dark" action='/estudiante/editar-estudiante-formulario/<%=datos.estudiante.id%>' method="post">
+        <div class="mb-3">
+            <label for="nombre" class="form-label"> Nombre </label>
+            <input placeholder="Ej: Estefany"
+                   type="text"
+                   name="nombre"
+                   class="form-control"
+                   id="nombre"
+                   aria-describedby="ayudaNombre"
+                   required>
+            <div id="ayudaNombre" class="form-text">
+                Ingrese el nombre.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="apellido" class="form-label"> Apellido </label>
+            <input placeholder="Ej: Canencia"
+                   type="text"
+                   name="apellido"
+                   class="form-control"
+                   id="apellido"
+                   aria-describedby="ayudapellido"
+                   required>
+            <div id="ayudaapellido" class="form-text">
+                Ingrese el apellido.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="calificacion" class="form-label"> Calificación </label>
+            <input placeholder="Ej: 10"
+                   type="number"
+                   name="calificacion"
+                   class="form-control"
+                   id="apellido"
+                   aria-describedby="ayudacalificacion"
+                   required>
+            <div id="ayudacalificacion" class="form-text">
+                Ingrese la calificacion.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="edad" class="form-label"> Edad</label>
+            <input placeholder="Ej: 12"
+                   type="number"
+                   name="edad"
+                   class="form-control"
+                   id="edad"
+                   aria-describedby="ayudaedad"
+                   required>
+            <div id="ayudaedad" class="form-text">
+                Ingrese la edad
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="anio" class="form-label"> Año de nacimiento </label>
+            <input placeholder="Ej: 2001"
+                   type="number"
+                   name="anio"
+                   class="form-control"
+                   id="anio"
+                   aria-describedby="ayudaanio"
+                   required>
+            <div id="ayudaanio" class="form-text">
+                Ingrese el año de nacimiento.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+    </form>
+</div>
+<br>
+
+
+<%- include('../comunes/footer') %>

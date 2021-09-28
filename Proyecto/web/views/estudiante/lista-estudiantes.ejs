@@ -1,0 +1,72 @@
+<%- include('../comunes/header') %>
+
+<div class='container'>
+    <h1>Lista de Estudiantes</h1>
+    <% const existeMensaje = typeof datos.mensaje !== "undefined"%>
+    <% if (existeMensaje){%>
+        <div class="alert alert-success" role="alert">
+            <%= datos.mensaje %>
+        </div>
+    <%}%>
+    <form action='/estudiante/lista-estudiantes' method="get">
+        <div class="mb-3">
+            <label for="busqueda" class="form-label"> Búsqueda </label>
+            <input placeholder="Ej: Estefany"
+                   type="text"
+                   name="busqueda"
+                   class="form-control"
+                   id="busqueda"
+                   aria-describedby="ayudaBusqueda">
+            <div id="ayudaBusqueda" class="form-text"> Puede buscar por nombre o apellido del estudiante. </div>
+        </div> <button type="submit" class="btn btn-primary w-25">Buscar</button>
+    </form>
+    <br>
+    <br>
+    <table class="table text-center">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Calificación</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Año</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ul>
+            <% datos.estudiante.forEach( (objeto) => { %>
+                <tr>
+                    <th><%= objeto.id %></th>
+                    <th><%= objeto.nombre %></th>
+                    <th><%= objeto.apellido %></th>
+                    <th><%= objeto.calificacion %></th>
+                    <th><%= objeto.edad %></th>
+                    <th><%= objeto.anio %></th>
+                    <th>
+                        <form action='/estudiante/vista-editar/<%= objeto.id %>' method='post'>
+                            <button class='btn btn-info' style="background-color: darkslateblue">Actualizar</button>
+                        </form>
+                    </th>
+                    <th>
+                        <form action='/estudiante/eliminar-estudiante/<%= objeto.id %>' method='post'>
+                            <button class='btn btn-danger'>Eliminar</button>
+                        </form>
+                    </th>
+                </tr>
+            <% } ) %>
+        </ul>
+        </tbody>
+    </table>
+    <br>
+    <div class="form-row text-center">
+        <a href="/estudiante/vista-crear">
+            <div class="col-12">
+                <button type="submit" class="btn btn-success">Crear Nueva Estudiante</button>
+            </div>
+        </a>
+    </div>
+</div>
+<br>
+
+<%- include('../comunes/footer') %>

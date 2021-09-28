@@ -25,3 +25,12 @@ model Mascota {
   usuarioId         Int
 }
 
+model Estudiante {
+  id                Int         @id @default(autoincrement())
+  fechaCreacion     DateTime    @default(now())
+  nombre            String
+  apellido          String
+  calificacion      Float
+  edad              Int
+  anio              Int
+}
