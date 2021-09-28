@@ -71,7 +71,7 @@ let EstudianteController = class EstudianteController {
             throw new common_1.InternalServerErrorException('Error del servidor');
         }
     }
-    async elminarMoto(response, routeParams) {
+    async elminarEstudiante(response, routeParams) {
         try {
             await this.estudianteService.eliminarUno(+routeParams.idEstudiante);
             response.redirect('/estudiante/lista-estudiantes' + '?mensaje=Se elimino el registro');
@@ -199,7 +199,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], EstudianteController.prototype, "elminarMoto", null);
+], EstudianteController.prototype, "elminarEstudiante", null);
 __decorate([
     common_1.Post('vista-editar/:idEstudiante'),
     __param(0, common_1.Res()),

@@ -79,7 +79,7 @@ export class EstudianteController {
     }
 
     @Post('eliminar-estudiante/:idEstudiante')
-    async elminarMoto(@Res() response, @Param() routeParams) {
+    async elminarEstudiante(@Res() response, @Param() routeParams) {
         try {
             await this.estudianteService.eliminarUno(+routeParams.idEstudiante);
             response.redirect(
@@ -128,7 +128,7 @@ export class EstudianteController {
             if (errores.length > 0) {
                 console.log(JSON.stringify(errores));
                 return response.redirect(
-                    '/estudiante/lista-estudiante/' + '?mensaje=Error validando datos',
+                    '/estudiante/lista-estudiantes/' + '?mensaje=Error validando datos',
                 );
             } else {
                 await this.estudianteService.actualizarUno({
